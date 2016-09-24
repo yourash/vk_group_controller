@@ -4,6 +4,8 @@ import json,time
 #https://oauth.vk.com/authorize?client_id=2895443&scope=33554431&response_type=token
 access_token=''
 count_of_posts=50
+#put '-' before group id example: group_id='-23242342'
+#пишите '-' перед номером группы пример: group_id='-23242342'
 group_id=''
 
 session = vk.Session(access_token)
