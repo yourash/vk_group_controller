@@ -6,7 +6,7 @@ access_token=''
 count_of_posts=50
 #put '-' before group id example: group_id='-23242342'
 #пишите '-' перед номером группы пример: group_id='-23242342'
-group_id=''
+group_id='-'
 
 session = vk.Session(access_token)
 api = vk.API(session)
@@ -21,10 +21,11 @@ def ban_user(from_id,message_string,comment_id):
 
 
 def checkBadWords(from_id,message_string,check_comment_id):
+    message_string=message_string.lower()
     with open('bad_words.txt', 'r') as file:
         bad_words_list = [line.rstrip('\n') for line in file]
     for bad_word in bad_words_list:
-        if message_string.find(bad_word)!=-1:
+        if message_string.find(bad_word.lower())!=-1:
             print('contain'+':'+bad_word)
             ban_user(from_id,message_string,check_comment_id)
 
