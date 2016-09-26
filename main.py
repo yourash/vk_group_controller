@@ -28,8 +28,9 @@ def checkBadWords(from_id,message_string,check_comment_id):
         if message_string.find(bad_word.lower())!=-1:
             print('contain'+':'+bad_word)
             ban_user(from_id,message_string,check_comment_id)
+            time.sleep(1)
 
-def main():
+def getWall():
     while True:
         wallist=api.wall.get(owner_id=group_id, count=count_of_posts)
         commentlist=[None]*count_of_posts
@@ -48,6 +49,14 @@ def main():
         # with open('data.json', 'w') as outfile:
         #     json.dump(commentlist, outfile)
         #     print(commentlist)
+
+def main():
+    try:
+        getWall()
+    except Exception, e:
+        time.sleep(10)
+    finally:
+        main()
 
 if __name__ == '__main__':
     main()
