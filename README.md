@@ -4,7 +4,7 @@ A simple script for vk.com. Delete comments with bad words and ban users who wro
 
 usage:
   
-  * enter bad words in nad_words.txt by enter.
+  * enter bad words in bad_words.txt by enter.
   * paste your VK token in 'token' field.
   * paste your group NUMBER id in 'group_id' field with '-' on the beginning.
   * start script by `python3 main.py`
